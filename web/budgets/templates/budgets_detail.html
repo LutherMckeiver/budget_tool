@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+
+{% block content%}
+<div>
+    <h3>{{ budgets.name }}</h3>
+  <p>Total= ${{ budgets.total_budget }}</p>
+  <p>Remaining = ${{ budgets.remaining_budget }}</p>
+</div>
+<p><a href="{% url "budgets_list" %}"> Back </a></p>
+{% endblock %}

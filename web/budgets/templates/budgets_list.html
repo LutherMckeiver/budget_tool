@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+{% for budget in budgets %}
+<div>
+  <h3><a href="{% url "budgets_detail" id=budget.id %}">{{ budget.name }}</a></h3>
+  <p>Total= ${{ budget.total_budget }}</p>
+  <p>Remaining = ${{ budget.remaining_budget }}</p>
+  <h4> Transactions : </h4>
+  {% for transaction in transactions %}
+  <p>Budget: {{ transaction.budget }}</p>
+  <p>Amount: {{ transaction.amount }}</p>
+  <p>Type: {{ transaction.action_type }}</p>
+  <p>Description: {{ transaction.description }}</p>
+  {% endfor %}
+</div>
+{% endfor %}
+
+
+{% endblock %}
+
+
